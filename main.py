@@ -29,6 +29,8 @@ class Scraper:
     def kill(self):
         self.driver.quit()
 
+    def get_data(self, listing):
+
     def get_listings(self):
         time.sleep(6)
         return self.driver.find_elements(By.CSS_SELECTOR, LISTINGS_CSS_SELECTOR)
@@ -39,27 +41,19 @@ class Scraper:
         button.click()
 
 
-s = Scraper(link)
+# s = Scraper(link)
+#
+# for elem in s.get_listings():
+#     print(elem.text)
+#     print("--------")
+#     print()
+#     print("--------")
+#     break
+#
+#
+#
+# s.kill()
 
-for elem in s.get_listings():
-    print(elem.text)
-    print("--------")
-    print()
-    print("--------")
-    break
-
-s.go_to_next_page()
-
-for elem in s.get_listings():
-    print(elem.text)
-    print("--------")
-    print()
-    print("--------")
-    break
-
-s.go_to_next_page()
-time.sleep(4)
-
-s.kill()
-
-
+driver = webdriver.Chrome(executable_path="/Users/majdbishara/PycharmProjects/HF_task4/chromedriver", options=options)
+driver.get(link)
+driver.find_element(By.CSS_SELECTOR, LISTINGS_CSS_SELECTOR)
